@@ -2,7 +2,8 @@
 
 pip install fastapi sqlalchemy fastapi-pagination uvicorn
 
-#Criação do Modelo de Dados
+
+# Criação do Modelo de Dados
 
 class Atleta(Base):
     __tablename__ = "atletas"
