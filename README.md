@@ -15,12 +15,16 @@ class Atleta(Base):
 
 # Configuração do Banco de Dados:
 
-DATABASE_URL = "postgresql://user:password@host:port/database"
-
-engine = create_engine(DATABASE_URL)
+Banco-Dados = "postgresql://user:password@host:port/database"
+Engine = create_engine(Banco-Dados)
 Base.metadata.create_all(engine)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Obter Sessão do banco de Dados
+
+def get_db(session: Session = Depends(SenssionLocal)):
+return session 
 
 # Endpoint para buscar todos os atletas
 
