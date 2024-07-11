@@ -2,7 +2,6 @@
 
 pip install fastapi sqlalchemy fastapi-pagination uvicorn
 
-
 # Criação do Modelo de Dados
 
 class Atleta(Base):
@@ -14,7 +13,7 @@ class Atleta(Base):
     centro_treinamento = Column(String(50))
     categoria = Column(String(300))
 
-#Configuração do Banco de Dados:
+# Configuração do Banco de Dados:
 
 DATABASE_URL = "postgresql://user:password@host:port/database"
 
