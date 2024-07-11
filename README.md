@@ -20,9 +20,10 @@ DATABASE_URL = "postgresql://user:password@host:port/database"
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 
-# SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Endpoint para buscar todos os atletas
+
 @app.get("/atletas", response_model=Page[Atleta])
 async def get_all_atletas(db: Session = Depends(get_db), limit: int | None = None, offset: int | None = None):
     atletas = db.query(Atleta).order_by(Atleta.id).limit(limit).offset(offset).all()
